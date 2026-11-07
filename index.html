@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover and register for upcoming events with GreenSpace Events.">
+  <title>Gather — Discover What's Happening</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="Gather home"><span class="brand-mark">g</span> gather<span class="brand-dot">.</span></a>
+      <div class="nav-links">
+        <a href="#events">Explore events</a>
+        <a href="#about">About</a>
+      </div>
+      <a class="nav-cta" href="#events">Find an event <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+      <div class="container hero-content">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> GOOD THINGS HAPPEN TOGETHER</div>
+        <h1>Make room for<br><span>what moves you.</span></h1>
+        <p class="hero-copy">Find your people, learn something new, and make memories. Your next great experience starts here.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#events">Explore events <span aria-hidden="true">↓</span></a>
+          <span class="hero-note"><span class="tiny-avatars">●●●</span> Discover something worth showing up for</span>
+        </div>
+        <div class="hero-bottom">
+          <span>CURATED EXPERIENCES</span><span>·</span><span>REAL CONNECTIONS</span><span>·</span><span>GOOD ENERGY</span>
+        </div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><span>FIND YOUR</span><strong>next<br>thing ↗</strong></div>
+    </section>
+
+    <section class="events-section container" id="events">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow section-eyebrow">THE GOOD STUFF</div>
+          <h2>Find your next <span>thing.</span></h2>
+          <p class="section-copy">A little inspiration for your calendar.</p>
+        </div>
+        <div class="event-count"><strong id="eventCount">06</strong><span> EVENTS TO EXPLORE</span></div>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search events..." aria-label="Search events">
+          <kbd>/</kbd>
+        </label>
+        <div class="filters" role="group" aria-label="Filter events by category">
+          <button class="filter active" data-category="All">All events</button>
+          <button class="filter" data-category="Technology">Technology</button>
+          <button class="filter" data-category="Music">Music</button>
+          <button class="filter" data-category="Art">Art &amp; culture</button>
+          <button class="filter" data-category="Wellness">Wellness</button>
+        </div>
+      </div>
+
+      <div class="events-grid" id="eventsGrid" aria-live="polite"></div>
+      <p class="no-results" id="noResults" hidden>No events found. Try another search or category.</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-inner">
+        <div class="about-symbol">✳</div>
+        <div><div class="eyebrow">A PLACE TO COME TOGETHER</div><h2>Less scrolling.<br><span>More living.</span></h2></div>
+        <p>Gather brings interesting people and experiences into one place. Find an event that sparks your curiosity, then show up and enjoy it.</p>
+        <a class="text-link" href="#events">See what's on <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner"><a class="brand footer-brand" href="#"><span class="brand-mark">g</span> gather<span class="brand-dot">.</span></a><span>Made for moments that matter.</span><span>© 2026 Gather Events</span></div>
+  </footer>
+
+  <dialog id="detailsDialog" class="dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div id="detailsContent"></div>
+  </dialog>
+
+  <dialog id="registerDialog" class="dialog register-dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div class="eyebrow section-eyebrow">SAVE YOUR SPOT</div>
+    <h2>You're almost <span>there.</span></h2>
+    <p class="form-intro">Fill in your details to register for this event.</p>
+    <form id="registrationForm" novalidate>
+      <label for="fullName">Full name</label>
+      <input id="fullName" name="fullName" type="text" placeholder="Your name" required minlength="2">
+      <small class="error" id="nameError"></small>
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      <small class="error" id="emailError"></small>
+      <label for="phone">Phone number</label>
+      <input id="phone" name="phone" type="tel" placeholder="10-digit mobile number" required inputmode="numeric">
+      <small class="error" id="phoneError"></small>
+      <label for="selectedEvent">Selected event</label>
+      <input id="selectedEvent" name="selectedEvent" type="text" readonly>
+      <button class="button button-green submit-button" type="submit">Complete registration <span>↗</span></button>
+      <p class="form-note">Your registration is saved in this browser.</p>
+    </form>
+    <div class="success-message" id="successMessage" hidden>
+      <div class="success-icon">✓</div><h3>You're on the list!</h3>
+      <p>Your registration has been saved. We look forward to seeing you.</p>
+      <button class="button button-green" data-close type="button">Done</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
